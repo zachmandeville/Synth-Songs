@@ -1,0 +1,11 @@
+#a swell to help you sleep
+
+live_loop :try do
+  use_synth :fm
+  play_chord [:c4, :e4, :g4, :b4], attack: 4, sustain: 4, release: 4
+  sleep 10
+  play_chord [:c4, :e4, :g4, :a4], attack: 4, sustain: 4, release: 4
+  sleep 10
+  play_chord [:c4, :d4, :e4, :g4], attack: 4, sustain: 4, release: 4
+  sleep 10
+end

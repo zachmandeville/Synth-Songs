@@ -1,0 +1,23 @@
+#Snippet of a melody for a lullaby.  The timing still isn't right yet though.
+
+use_bpm 80
+live_loop :mel do
+  play :e3
+  sleep 0.7
+  play :g3
+  sleep 0.75
+  play :b3
+  sleep 0.7
+  play :c4
+  sleep 1.7
+  play :e3
+  sleep 0.7
+  play :g3
+  sleep 0.8
+  play :b3
+  sleep 0.8
+  play :d4
+  sleep 1.6
+  play :c4
+  sleep 0.7
+end

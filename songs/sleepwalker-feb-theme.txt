@@ -1,0 +1,73 @@
+#Lil theme made up for the start of Sleepwalker videos
+
+use_bpm 108
+with_fx :reverb do
+  with_fx :nhpf do
+    live_loop :sleepwalker do
+      use_synth (ring :beep, :beep,:beep, :beep,:beep, :beep, :beep, :fm, :fm, :fm, :fm, :fm, :fm, :fm, :fm, ).tick
+      16.times do
+        play ring(:c4, :g4, :b4,:c4, :g4, :b4,:c4, :g4).tick, amp: 1, attack: 0.125, release: 0.125, cutoff: 0.5
+        sleep 0.25
+      end
+      16.times do
+        play ring(:c4, :f4, :b4,:c4, :f4, :b4,:c4, :g4).tick, amp: 1, attack: 0.125, release: 0.125, cutoff: 0.5
+        sleep 0.25
+      end
+      16.times do
+        play ring(:c4, :e4, :g4,:c4, :e4, :g4,:c4, :e4).tick, amp: 1, attack: 0.125, release: 0.125, cutoff: 0.5
+        sleep 0.25
+      end
+      16.times do
+        play ring(:b3, :e4, :g4,:b3, :e4, :g4,:b3, :e4).tick, amp: 1, attack: 0.125, release: 0.125, cutoff: 0.5
+        sleep 0.25
+      end
+    end
+  end
+end
+
+with_fx :lpf do
+  with_fx :compressor do
+    live_loop :elvis do
+      16.times do
+        play :c4, release: 0.25
+        sleep 0.25
+      end
+      16.times do
+        play :f3, release: 0.25
+        sleep 0.25
+      end
+      16.times do
+        play :e4, release: 0.25
+        sleep 0.25
+      end
+      16.times do
+        play :d4, release: 0.25
+        sleep 0.25
+      end
+    end
+  end
+end
+
+live_loop :dreams do
+  sync :sleepwalker
+  play :e4, amp: 0.1, attack: 4, attack_level: 2, decay_level: 2, decay: 2
+  sleep 8
+  play :c4, amp: 0.1, attack: 4, attack_level: 2, decay_level: 1, decay: 1
+  sleep 16
+end
+
+live_loop :happy_audience do
+  use_bpm (ring 13.5, 54, 54, 54, 54, 108, 108, 108, 108, 108, 108, 108, 108, 27, 27, 54,54,54,54).tick
+  sample :loop_mika, amp: 0.7, beat_stretch: 8
+  sleep 2
+end
+
+live_loop :laughter do
+  use_synth :fm
+  play_chord [:c4, :e4, :g4, :b4], attack: 4, sustain: 4, release: 4
+  sleep 10
+  play_chord [:c4, :e4, :g4, :a4], attack: 4, sustain: 4, release: 4
+  sleep 10
+  play_chord [:c4, :d4, :e4, :g4], attack: 4, sustain: 4, release: 4
+  sleep 10
+end
