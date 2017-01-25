@@ -1,0 +1,50 @@
+use_bpm 60
+live_loop :riff do
+  with_fx :echo, mix: 0.8 do
+    use_synth :saw
+    use_random_seed 1009
+    notes = (scale :c3, :diatonic).shuffle
+    16.times do
+      play notes.tick, release:  0.2, cutoff: 90 if one_in(2)
+      sleep 0.125
+    end
+  end
+end
+
+live_loop :drum do
+  use_bpm 60
+  sample :loop_amen, beat_stretch: 2, cutoff: 110
+  sleep 2
+end
+
+live_loop :bass do
+  cue :start
+  use_bpm 60
+  use_synth :saw
+  with_fx :slicer, pan: 2, wave: 2, mix: 0 do
+    boom = (ring :c2, :f1, :a2, :g2).tick
+    play (chord boom, '1'), attack: 0.5, sustain: 7.5
+    sleep 8
+  end
+end
+
+live_loop :test do
+  with_fx :hpf, mix: 0.5 do
+    15.times do
+      sleep 0.5
+    end
+    riff= (ring :e6, :d6,:e6, :d6)
+    4.times do
+      play riff.tick, release: 0.125
+      sleep 0.125
+    end
+    2.times do
+
+      play (ring :c6, :c6, :c6, :c6, :g5, :g5, :g5, :g5).tick release: 0.25, cutoff: 70
+      sleep 0.25
+    end
+    15.times do
+      sleep 0.5
+    end
+  end
+end
