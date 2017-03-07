@@ -1,5 +1,6 @@
 :# 3.5.17
 - use_transpose
+
 	This will bring the entire ring down a number of keys that you choose by
 	a number.  This is useful for when you want to efficiently change chords
 	for a scale you've set up, or you want to lower the sound a couple
@@ -9,6 +10,7 @@
 		   If you do use_transpose -12, it will bring it down an entire
 		   octave.
 - This is an awesome riff:
+
 	with_fx :echo do
  	   live_loop :vortex do
     	   use_random_seed (ring 800, 767, 780, 860).tick
